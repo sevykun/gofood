@@ -41,169 +41,7 @@ $headers[] = 'X-Location: -6.405821,106.064193';
             $verif = curl('https://api.gojekapi.com/v5/customers/phone/verify', $data2, $headers);
             $verifs = json_decode($verif[0]);
             if($verifs->success == true) {
-                // Claim Voucher
-                $token = $verifs->data->access_token;
-                $headers[] = 'Authorization: Bearer '.$token;
-                $live = "tokens";
-                $fopen1 = fopen($live, "a+");
-                $fwrite1 = fwrite($fopen1, "TOKEN => ".$token." \n NOMOR => ".$number." \n");
-                fclose($fopen1);
-                echo "Token ~> ".$token." \n";
-                echo "\e[92m[+] Token Tersimpan di ~> ".$live." \n\n";
-                
-                // SANTAI19
-                echo "\e[96m[!] Proses Reedem Voucher 20+10 : WADAWGOJEK \n";
-                $data3 = '{"promo_code":"WADAWGOJEK"}';
-                $claim = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data3, $headers);
-                $claims = json_decode($claim[0]); 
-                if($claims->success == true) 
-                        {
-                                // Claim Voucher
-                                $live2 = "wadaw";
-                                $fopen2 = fopen($live2, "a+");
-                                $fwrite2 = fwrite($fopen2, "TOKEN => ".$token." \n");
-                                fclose($fopen2);
-                                echo "\e[92m [✓]".$claims->data->message."  [•] Token Tersimpan di ~> ".$live2;
-                        } 
-                        else 
-                            {
-                                echo "\e[91m [×] Gagal Claim Voucer !";
-                                    sleep(5);
-                                    echo "\n";
-
-                                    // SANTAI11
-                                        echo "\e[96m[!] Proses Reedem Voucher 20+10 : GOFOODSANTAI19 \n";
-                                        $data4 = '{"promo_code":"GOFOODSANTAI19"}';
-                                        $claim1 = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data4, $headers);
-                                        $claims1 = json_decode($claim1[0]);
-                                        if($claims1->success == true) 
-                                                {
-                                                        // Claim Voucher
-                                                        $live3 = "santai19";
-                                                        $fopen3 = fopen($live3, "a+");
-                                                        $fwrite3 = fwrite($fopen3, "TOKEN => ".$token." \n");
-                                                        fclose($fopen3);
-                                                        echo "\e[92m [✓]".$claims1->data->message."  [•] Tersimpan di ~> ".$live3;
-                                                } else 
-                                                    {
-                                                        echo "\e[91m [×] Gagal Claim Voucer !";
-                                                            sleep(5);
-                                                            echo "\n";
-
-                                                            // SANTAI08
-                                                                echo "\e[96m[!] Proses Redeem Voucher 15+10 : GOFOODSANTAI11 \n";
-                                                                $data5 = '{"promo_code":"GOFOODSANTAI11"}';
-                                                                $claim2 = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data5, $headers);
-                                                                $claims2 = json_decode($claim2[0]);
-                                                                if($claims2->success == true) 
-                                                                        {
-                                                                                // Claim Voucher
-                                                                                $live4 = "santai11";
-                                                                                $fopen4 = fopen($live4, "a+");
-                                                                                $fwrite4 = fwrite($fopen4, "TOKEN => ".$token." \n");
-                                                                                fclose($fopen4);
-                                                                                echo "\e[92m [✓]".$claims2->data->message." [•] Tersimpan di ~> ".$live4;
-                                                                        } else 
-                                                                            {
-                                                                                echo "\e[91m [×] Gagal Claim Voucer !";
-                                                                                    sleep(5);
-                                                                                    echo "\n";
-
-                                                                                    // SANTAI08
-                                                                                        echo "\e[96m[!] Proses Redeem Voucher 10+10 : GOFOODSANTAI08 \n";
-                                                                                        $data6 = '{"promo_code":"GOFOODSANTAI08"}';
-                                                                                        $claim3 = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data6, $headers);
-                                                                                        $claims3 = json_decode($claim3[0]);
-                                                                                        if($claims3->success == true) 
-                                                                                                {
-                                                                                                        // Claim Voucher
-                                                                                                        $live5 = "santai08";
-                                                                                                        $fopen5 = fopen($live5, "a+");
-                                                                                                        $fwrite5 = fwrite($fopen5, "TOKEN => ".$token." \n");
-                                                                                                        fclose($fopen5);
-                                                                                                        echo "\e[92m [✓]".$claims3->data->message." [•] Tersimpan di ~> ".$live5;
-                                                                                                } else 
-                                                                                                    {
-                                                                                                        echo "\e[91m [×] Gagal Claim Voucer !";
-                                                                                                    }
-                                                                            }
-
-                                                    }
-
-                            }
-
-                sleep(5);
-                echo "\n";
-                echo "\e[96m[!] Proses Redeem Vocher : COBAINGOJEK \n";
-                $data6 = '{"promo_code":"COBAINGOJEK"}';
-                $claim3 = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data6, $headers);
-                $claims3 = json_decode($claim3[0]);
-                if($claims3->success == true)
-                        {
-                                echo "\e[92m [✓]".$claims3->data->message;
-                        } else
-                            {
-                                echo "\e[91m [×] Gagal Claim Voucer !";
-
-                            }
-                sleep(5);
-                echo "\n";
-                echo "\e[96m[+] Proses Redeem Vocher : AYOCOBAGOJEK \n";
-                $data7 = '{"promo_code":"AYOCOBAGOJEK"}';
-                $claim4 = curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments', $data7, $headers);
-                $claims4 = json_decode($claim4[0]);
-                if($claims4->success == true)
-                        {
-                                echo "\e[92m [✓]".$claims4->data->message;
-                        } else
-                            {
-                                echo "\e[91m [×] Gagal Claim Voucer !";
-                            }
-                    sleep(5);
-                    echo "\n";
                     
-                $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=10&page=1', $token);
-                $total = fetch_value($cekvoucher,'"total_vouchers":',',');
-                $voucher3 = getStr1('"title":"','",',$cekvoucher,"3");
-                $voucher1 = getStr1('"title":"','",',$cekvoucher,"1");
-                $voucher2 = getStr1('"title":"','",',$cekvoucher,"2");
-                $voucher4 = getStr1('"title":"','",',$cekvoucher,"4");
-                $voucher5 = getStr1('"title":"','",',$cekvoucher,"5");
-                $voucher6 = getStr1('"title":"','",',$cekvoucher,"6");
-                $voucher7 = getStr1('"title":"','",',$cekvoucher,"7");
-                $voucher8 = getStr1('"title":"','",',$cekvoucher,"8");
-
-                
-                
-                $expired1 = getStr1('"expiry_date":"','"',$cekvoucher,'1');
-                $expired2 = getStr1('"expiry_date":"','"',$cekvoucher,'2');
-                $expired3 = getStr1('"expiry_date":"','"',$cekvoucher,'3');
-                $expired4 = getStr1('"expiry_date":"','"',$cekvoucher,'4');
-                $expired5 = getStr1('"expiry_date":"','"',$cekvoucher,'5');
-                $expired6 = getStr1('"expiry_date":"','"',$cekvoucher,'6');
-                $expired7 = getStr1('"expiry_date":"','"',$cekvoucher,'7');
-                $expired8 = getStr1('"expiry_date":"','"',$cekvoucher,'8');
-                    
-                
-                echo "\n".color("yellow","!] Total voucher ".$total." : ");
-                echo "\n".color("green","1] ".$voucher1);
-                echo "\n".color("red"," EXP ~> ".$expired1);
-                echo "\n".color("green","2] ".$voucher2);
-                echo "\n".color("red"," EXP ~> ".$expired2);
-                echo "\n".color("green","3] ".$voucher3);
-                echo "\n".color("red"," EXP ~> ".$expired3);
-                echo "\n".color("green","4] ".$voucher4);
-                echo "\n".color("red"," EXP ~> ".$expired4);
-                echo "\n".color("green","5] ".$voucher5);
-                echo "\n".color("red"," EXP ~> ".$expired5);
-                echo "\n".color("green","6] ".$voucher6);
-                echo "\n".color("red"," EXP ~> ".$expired6);
-                echo "\n".color("green","7] ".$voucher7);
-                echo "\n".color("red"," EXP ~> ".$expired7);
-                echo "\n".color("green","8] ".$voucher8);
-                echo "\n".color("red"," EXP ~> ".$expired8);
-                echo"\n";
-
 }else
     {
         echo color("red","[×] Otp yang anda input salah");
@@ -347,3 +185,19 @@ function curl($url, $fields = null, $headers = null)
             $httpcode
         );
     }
+
+echo "\n".color("purple","SETPIN..!!!: y/n ");
+         $pilih1 = trim(fgets(STDIN));
+         if($pilih1 == "y" || $pilih1 == "Y"){
+         //if($pilih1 == "y" && strpos($no, "628")){
+         echo color("nevy","▬▬▬▬▬▬▬▬▬▬▬▬▬▬ PIN MU = 147258 ▬▬▬▬▬▬▬▬▬▬▬▬")."\n";
+         $data2 = '{"pin":"147258"}';
+         $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
+         echo color("purple", "Otp pin: "."\n");
+         $otpsetpin = trim(fgets(STDIN));
+         $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
+         echo $verifotpsetpin;
+         }else if($pilih1 == "n" || $pilih1 == "N"){
+         die();
+         }else{
+         echo color("red","-] GAGAL!!!\n");}
